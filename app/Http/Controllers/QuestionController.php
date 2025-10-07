@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -27,15 +26,23 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->all());
+        // dd($request->all());
 
-      $request->validate([
-	'nama' => 'required|max:10',
-    'email' => ['required','email'],
-    'pertanyaan' => 'required|max:300|min:8',
-],[
-    'nama.required' => 'Nama tidak boleh kosong',
-    'email.email' => 'Email Tidak valid']);
+        $request->validate([
+            'nama'       => 'required|max:10',
+            'email'      => ['required', 'email'],
+            'pertanyaan' => 'required|max:300|min:8',
+        ]);
+
+        $data['nama']       = $request->nama;
+        $data['email']      = $request->email;
+        $data['pertanyaan'] = $request->pertanyaan;
+
+        //return view('home-question-respon', $data);
+
+        // Redirect ke route yang memiliki alias 'home'
+        return redirect()->route('home')->with('info', 'Terimakasih atas pertanyaannya <b> ' . $data['nama'] . '! </b>
+        Silahkan cek email anda di <b>' . $data['email'] . '</b> untuk respon lebih lanjut');
     }
 
     /**
@@ -69,13 +76,4 @@ class QuestionController extends Controller
     {
         //
     }
-    public function login(Request $request)
-{
-    // semua data form
-    dd($request->all());
-
-    // ambil spesifik input
-    $username = $request->input('username');
-    $password = $request->input('password');
-}
 }
