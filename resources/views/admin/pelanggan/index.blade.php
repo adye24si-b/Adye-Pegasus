@@ -1,14 +1,32 @@
+<!--
 
+=========================================================
+* Volt Pro - Premium Bootstrap 5 Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* License (https://themesberg.com/licensing)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Primary Meta Tags -->
     <title>Volt - Free Bootstrap 5 Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="Volt - Free Bootstrap 5 Dashboard">
     <meta name="author" content="Themesberg">
 
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin/img/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32"
         href="{{ asset('assets-admin/img/favicon/favicon-32x32.png') }}">
@@ -19,6 +37,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Volt CSS -->
     <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
 
 </head>
@@ -83,8 +102,8 @@
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::is('dashboard*') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
+                <li class="nav-item  active ">
+                    <a href="{{ route('pelanggan.create') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -95,9 +114,9 @@
                         <span class="sidebar-text">Dashboard</span>
                     </a>
                 </li>
-
-                <li class="nav-item {{ Request::is('pelanggan*') ? 'active' : '' }}">
-                    <a href="{{ route('pelanggan.index') }}" class="nav-link">
+                <!-- Tambahkan blok kode ini -->
+                <li class="nav-item  active ">
+                    <a href="" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -151,6 +170,7 @@
             <div class="container-fluid px-0">
                 <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
                     <div class="d-flex align-items-center">
+                        <!-- Search form -->
                         <form class="navbar-search form-inline" id="navbar-search-main">
                             <div class="input-group input-group-merge search-bar">
                                 <span class="input-group-text" id="topbar-addon">
@@ -166,7 +186,9 @@
                                     placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
                             </div>
                         </form>
-                        </div>
+                        <!-- / Search form -->
+                    </div>
+                    <!-- Navbar links -->
                     <ul class="navbar-nav align-items-center">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark notification-bell unread dropdown-toggle"
@@ -186,6 +208,7 @@
                                     <a href="#" class="list-group-item list-group-item-action border-bottom">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
+                                                <!-- Avatar -->
                                                 <img alt="Image placeholder"
                                                     src="{{ asset('assets-admin/img/team/profile-picture-1.jpg') }}"
                                                     class="avatar-md rounded">
@@ -207,6 +230,7 @@
                                     <a href="#" class="list-group-item list-group-item-action border-bottom">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
+                                                <!-- Avatar -->
                                                 <img alt="Image placeholder"
                                                     src="{{ asset('assets-admin/img/team/profile-picture-2.jpg') }}"
                                                     class="avatar-md rounded">
@@ -228,6 +252,7 @@
                                     <a href="#" class="list-group-item list-group-item-action border-bottom">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
+                                                <!-- Avatar -->
                                                 <img alt="Image placeholder"
                                                     src="{{ asset('assets-admin/img/team/profile-picture-3.jpg') }}"
                                                     class="avatar-md rounded">
@@ -260,7 +285,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown ms-lg-3">
-                            <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button"
+                            <a class="nav-link dropdown-toggle pt-1 px-0" href="" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="media d-flex align-items-center">
                                     <img class="avatar rounded-circle" alt="Image placeholder"
@@ -319,76 +344,64 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('pelanggan.index') }}">Pelanggan</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
+                    <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambahkan data pelanggan baru.</p>
+                    <h1 class="h4">Data Pelanggan</h1>
+                    <p class="mb-0">List data seluruh pelanggan</p>
                 </div>
                 <div>
-                    <a href="{{ route('pelanggan.index') }}" class="btn btn-primary"><i class="far fa-question-circle me-1"></i> Kembali</a>
+                    <a href="{{ route('pelanggan.create') }}" class="btn btn-success text-white"><i
+                            class="far fa-question-circle me-1"></i>
+                        Tambah Pelanggan</a>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 mb-4">
-                <div class="card border-0 shadow components-section">
+                <div class="card border-0 shadow mb-4">
                     <div class="card-body">
-                        <form action="{{ route('pelanggan.store') }}" method="POST">
-                            @csrf
-                            <div class="row mb-4">
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="first_name" class="form-label">First name</label>
-                                        <input type="text" id="first_name" name="first_name" class="form-control" value="{{ old('first_name') }}" required>
-                                    </div>
+                        <div class="table-responsive">
+                            <table id="table-pelanggan" class="table table-centered table-nowrap mb-0 rounded">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="border-0">First Name</th>
+                                        <th class="border-0">Last Name</th>
+                                        <th class="border-0">Birthday</th>
+                                        <th class="border-0">Gender</th>
+                                        <th class="border-0">Email</th>
+                                        <th class="border-0">Phone</th>
+                                        <th class="border-0 rounded-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                    <div class="mb-3">
-                                        <label for="last_name" class="form-label">Last name</label>
-                                        <input type="text" id="last_name" name="last_name" class="form-control" value="{{ old('last_name') }}" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="birthday" class="form-label">Birthday</label>
-                                        <input type="date" id="birthday" name="birthday" class="form-control" value="{{ old('birthday') }}">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="gender" class="form-label">Gender</label>
-                                        <select id="gender" name="gender" class="form-select">
-                                            <option value="">-- Pilih --</option>
-                                            <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                                            <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
-                                            <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-sm-12">
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone') }}">
-                                    </div>
-
-                                    <div class="">
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
-                                        <a href="{{ route('pelanggan.index') }}"
-                                            class="btn btn-outline-secondary ms-2">Batal</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                                    @foreach ($dataPelanggan as $item)
+                                        <tr>
+                                            <td>{{ $item->first_name }}</td>
+                                            <td>{{ $item->last_name }}</td>
+                                            <td>{{ $item->birthday }}</td>
+                                            <td>{{ $item->gender }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->phone }}</td>
+                                            <td><a href="" class="btn btn-info btn-sm">
+                                                    <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
+                                                        stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10">
+                                                        </path>
+                                                    </svg>
+                                                    Edit
+                                                </a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -402,6 +415,7 @@
                             target="_blank">Themesberg</a></p>
                 </div>
                 <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
+                    <!-- List -->
                     <ul class="list-inline list-group-flush list-group-borderless text-md-end mb-0">
                         <li class="list-inline-item px-0 px-sm-2">
                             <a href="https://themesberg.com/about">About</a>
@@ -421,9 +435,11 @@
         </footer>
     </main>
 
+    <!-- Core -->
     <script src="{{ asset('assets-admin/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets-admin/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
+    <!-- Volt JS -->
     <script src="{{ asset('assets-admin/js/volt.js') }}"></script>
 </body>
 
