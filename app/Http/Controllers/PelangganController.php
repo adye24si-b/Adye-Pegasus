@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
@@ -28,9 +29,8 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all())
-
-        //dd($request->all());
+        // Mendefinisikan data untuk disimpan
+        $data = [];
         $data['first_name'] = $request->first_name;
         $data['last_name']  = $request->last_name;
         $data['birthday']   = $request->birthday;
@@ -48,7 +48,7 @@ class PelangganController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Logika untuk menampilkan satu data pelanggan
     }
 
     /**
@@ -65,9 +65,10 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $pelanggan_id = $id;
-        $pelanggan    = Pelanggan::findOrFail($pelanggan_id);
+        // Mengambil data pelanggan berdasarkan ID
+        $pelanggan = Pelanggan::findOrFail($id);
 
+        // Memperbarui atribut pelanggan
         $pelanggan->first_name = $request->first_name;
         $pelanggan->last_name  = $request->last_name;
         $pelanggan->birthday   = $request->birthday;
@@ -85,6 +86,9 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pelanggan = Pelanggan::findOrFail($id);
+        $pelanggan->delete();
+
+        return redirect()->route('pelanggan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }
