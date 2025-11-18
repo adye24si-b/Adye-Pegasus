@@ -42,6 +42,19 @@
 
 
                 <div class="card-body">
+                    <form method="GET" action="{{ route('pelanggan.index') }}"
+                        class="mb-3">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <select name="gender" class="form-select" onchange="this.form.submit()">
+                                    <option value="">All</option>
+                                    <option value="Male" {{ request('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                                    <option value="Female" {{ request('gender') == 'Female' ? 'selected' : '' }}>Female
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table id="table-pelanggan" class="table table-centered table-nowrap mb-0 rounded">
                             <thead class="thead-light">

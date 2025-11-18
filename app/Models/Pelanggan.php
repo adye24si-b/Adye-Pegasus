@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory; // Opsional, tapi disarankan
 
 class Pelanggan extends Model
@@ -22,4 +23,14 @@ class Pelanggan extends Model
         'email',
         'phone',
     ]; // PERBAIKAN: Menambahkan titik koma di sini
+
+    public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
+{
+    foreach ($filterableColumns as $column) {
+        if ($request->filled($column)) {
+            $query->where($column, $request->input($column));
+        }
+    }
+    return $query;
+}
 }
