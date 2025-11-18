@@ -10,14 +10,16 @@ class PelangganController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        // Daftar kolom yang bisa difilter sesuai nama pada form
+{
         $filterableColumns = ['gender'];
 
-        // Gunakan scope filter untuk memproses query
-        $pageData['dataPelanggan'] = Pelanggan::filter($request, $filterableColumns)->paginate(10);
+        $searchableColumns = ['first_name']; //Tambahkan ini
 
-        return view('admin.pelanggan.index', $pageData);
+        $data['dataPelanggan'] = Pelanggan::filter($request, $filterableColumns)
+            ->search($request, $searchableColumns) // dan ini
+            ->paginate(10)->withQueryString();
+
+        return view('admin.pelanggan.index', $data);
     }
     /**
      * Show the form for creating a new resource.
